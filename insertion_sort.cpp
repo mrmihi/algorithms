@@ -1,14 +1,14 @@
 #include <iostream>
 
 template<typename T>
-    void insertion_sort(T * array){
+    void insertion_sort(T * array,int noOfElements){
         int key = 0;
         int j = 0;
-        int size = sizeof(array)/sizeof(T);
+        int size = noOfElements;
         for(int i = 1; i < size; ++i){
             key = array[i];
-            j = i;
-            while (j > 0 and array[i]> key){
+            j = i - 1; 
+            while (j > -1 and array[j]> key){
                 array[j + 1] = array[j];
                 j -= 1;
                 array[j+1] = key;
@@ -18,7 +18,7 @@ template<typename T>
 
 int main (){
     int arr[5] = {5,4,3,2,1};
-    insertion_sort<int>(arr);
+    insertion_sort<int>(arr,5);
     for (int i : arr){
         std::cout<<i<<std::endl;
     }
